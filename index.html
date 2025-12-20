@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saylani Welfare Trust | Serving Humanity</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========== GLOBAL RESET ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== HEADER (Glassmorphism) ========== */
+        header {
+            background: rgba(30, 30, 31, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 15px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #8dc63f;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: .3s;
+        }
+
+        nav ul li a:hover {
+            color: #8dc63f;
+        }
+
+        /* ========== PREMIUM HERO SECTION ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: url('https://saylani-welfare-website-suneel.vercel.app/static/media/donate1.a25c372108e68fea4ea6.webp') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 8%;
+            overflow: hidden;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.85) 30%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(141, 198, 63, 0.2);
+            color: #8dc63f;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(141, 198, 63, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, #8dc63f, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+
+        /* Hero Buttons */
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .4s ease;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #8dc63f;
+            border: none;
+            color: white;
+            box-shadow: 0 10px 20px rgba(141, 198, 63, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: #75ab32;
+            transform: translateY(-3px);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .btn-glass:hover {
+            background: white;
+            color: #3167eb;
+        }
+
+        /* Floating Stats Card */
+        .floating-card {
+            position: absolute;
+            bottom: 80px;
+            right: 8%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            gap: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 2;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .stat h3 {
+            color: #8dc63f;
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .divider {
+            width: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ========== ABOUT SECTION ========== */
+        .about {
+            padding: 100px 8%;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-img img {
+            width: 100%;
+            display: block;
+            transition: 0.5s;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1.2;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            font-size: 2.8rem;
+            color: #3167eb;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* ========== SERVICES SECTION ========== */
+        .services {
+            padding: 100px 8%;
+            background: #f4f7ff;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 3rem;
+            color: #3167eb;
+            margin-bottom: 60px;
+            font-weight: 800;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            transition: .4s;
+            text-align: left;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 35px;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #3167eb;
+            font-size: 1.6rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* ========== CONTACT SECTION ========== */
+        #contact {
+            padding: 100px 8%;
+            background: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            background: #fff;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info {
+            background: #3167eb;
+            color: white;
+            padding: 50px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            padding: 50px;
+            text-align: left;
+            background: #fdfdfd;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            background: #f4f4f4;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #3167eb;
+            background: #fff;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: #3167eb;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1e45a5;
+            box-shadow: 0 10px 20px rgba(49, 103, 235, 0.3);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 50px;
+            font-size: 15px;
+        }
+
+        footer b {
+            color: #fff;
+        }
+
+        /* ========== ANIMATIONS ========== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+                padding: 0 5%;
+            }
+
+            .hero-content {
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">SAYLANI <span>WELFARE</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="badge">Sherving Humanity Since 1999</div>
+            <h1>Saylani Welfare Trust<br><span>Serving The Poor</span></h1>
+            <p>
+                Saylani Welfare Trust is a ray of hope for millions. Join our mission to provide
+                free food, quality education, and healthcare to those who need it most.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Donate Now</a>
+                <a href="#about" class="btn btn-glass">Learn More</a>
+            </div>
+        </div>
+
+        <div class="floating-card">
+            <div class="stat">
+                <h3>150k+</h3>
+                <p>Daily Meals</p>
+            </div>
+            <div class="divider"></div>
+            <div class="stat">
+                <h3>200k+</h3>
+                <p>IT Students</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-img">
+            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1470&auto=format&fit=crop"
+                alt="Helping Poor">
+        </div>
+        <div class="about-text">
+            <h2>Poverty Alleviation & <br>Human Welfare</h2>
+            <p>Saylani Welfare Trust ne hamesha ghareebon aur zaroorat-mandon ki pukar par labbaik kaha hai. Hamara
+                maqsad sirf khana khilana nahi, balki unhein apne paon par khara karna hai.</p>
+            <p>Hazaron bachon ko muft IT education aur vocational training de kar hum mulk ka mustaqbil sanwar rahe hain
+                taake wo izzat ki rozi kama sakein.</p>
+            <a href="#" class="btn btn-primary" style="padding: 12px 30px;">Our Vision</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Core Services</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=500&auto=format&fit=crop"
+                    class="card-img" alt="Education">
+                <div class="card-body">
+                    <h3>SMIT (Education)</h3>
+                    <p>Muft IT courses aur technical skills ke zariye naujawano ko global market ke liye tayyar karna.
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://i.ytimg.com/vi/g1JkkVDDoP0/maxresdefault.jpg" class="card-img" alt="Food">
+                <div class="card-body">
+                    <h3>Dastarkhwan</h3>
+                    <p>Rozana hazaron bhookay logon ko ba-izzat tareeqe se muft taza khana faraham karna.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=500&auto=format&fit=crop"
+                    class="card-img" alt="Health">
+                <div class="card-body">
+                    <h3>Healthcare</h3>
+                    <p>Free medical clinics aur ambulance service ke zariye har zaroorat-mand ka ilaaj karna.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <div class="info-item">📍 A-25, Bahadurabad, Karachi.</div>
+                <div class="info-item">📞 UAN: 111-729-526</div>
+                <div class="info-item">✉️ info@saylaniwelfare.com</div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="alert('Paigham bheja ja raha hai...'); return false;">
+                    <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                    <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                    <div class="form-group"><textarea rows="4" placeholder="How can we help you?" required></textarea>
+                    </div>
+                    <button class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 <b>Saylani Welfare Trust</b> | ❤️ </p>
+    </footer>
+
+</body>
+
+</html>

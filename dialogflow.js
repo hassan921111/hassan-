@@ -49,7 +49,7 @@ app.post("/webhook", async (req, res) => {
 
     function donation(agent) {
         const { amount, email, phone } = agent.parameters;
-        agent.add(`Hey, Your donation of ${amount} is confirmed for ${email} and ${phone}`)
+        agent.add(`Hey, Your donation of ${amount} is confirmed`)
 
         console.log('Amount is :', amount)
      

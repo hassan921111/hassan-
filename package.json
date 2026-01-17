@@ -12,9 +12,18 @@
   "type": "commonjs",
   "dependencies": {
     "@google-cloud/dialogflow": "^7.4.0",
+    "@supabase/supabase-js": "^2.90.1",
     "cors": "^2.8.5",
     "dialogflow-fulfillment": "^0.5.0",
     "express": "^5.2.1",
-    "nodemailer": "^7.0.11"
-  }
+    "nodemailer": "^7.0.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hassan921111/hassan-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hassan921111/hassan-/issues"
+  },
+  "homepage": "https://github.com/hassan921111/hassan-#readme"
 }
